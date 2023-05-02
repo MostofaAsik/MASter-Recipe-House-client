@@ -5,7 +5,7 @@ const Footer = () => {
         <footer className="footer p-10 bg-base-200 text-base-content">
             <div>
 
-                <p className='text-4xl text-orange-700 font-bold'>MASter Chef Recipe Ltd.<br /> <span className='text-black font-semibold'>Since 2022</span> </p>
+                <p className='text-4xl text-orange-700 font-bold'>MASter Recipe House Ltd.<br /> <span className='text-black font-semibold'>Since 2022</span> </p>
             </div>
             <div>
                 <span className="footer-title text-lime-700">Services</span>

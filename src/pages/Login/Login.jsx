@@ -4,7 +4,7 @@ import { FaArrowAltCircleRight, FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
-    const { logIn } = useContext(AuthContext);
+    const { logIn, loading } = useContext(AuthContext);
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
 
@@ -15,9 +15,6 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password);
 
-        if (email, password) {
-            setError(' Email or Password dose not match')
-        }
         setSuccess('')
         logIn(email, password)
             .then(result => {
@@ -29,7 +26,7 @@ const Login = () => {
             })
             .catch(error => {
                 console.log(error.message);
-                // setError(error.message)
+                setError(' Email or Password dose not match')
             })
     }
 

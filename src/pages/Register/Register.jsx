@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
@@ -15,7 +16,7 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(name, photo, email, password);
+        // console.log(name, photo, email, password);
 
         if (password.length < 6) {
             setError('Password minimum  6 charecters')
@@ -29,11 +30,9 @@ const Register = () => {
                 setSuccess("You are succesfull created an account")
                 setError('')
                 form.reset()
-            })
-            .catch(error => {
-                console.log(error.message);
 
             })
+
     }
 
     return (
