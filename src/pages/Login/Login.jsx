@@ -1,12 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowAltCircleRight, FaGithub, FaGoogle } from "react-icons/fa";
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
+    const { logIn } = useContext(AuthContext);
+
+    const handleLogIn = (event) => {
+        event.preventDefault()
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+        Login(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+    }
+
     return (
         <div className='text-center'>
             <h2 className='text-2xl font-semibold mb-20 mt-10'> Login Here</h2>
-            <form >
+            <form onSubmit={handleLogIn}>
 
                 <label className='mr-5 font-bold' htmlFor="Email">Email:</label>
                 <input className='p-3 border-2' type="email" name='email' placeholder="Enter Your Email" required />
