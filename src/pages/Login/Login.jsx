@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowAltCircleRight, FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
     const { logIn } = useContext(AuthContext);
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
 
     const handleLogIn = (event) => {
         event.preventDefault()
@@ -12,16 +14,30 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
-        Login(email, password)
+
+        if (email, password) {
+            setError(' Email or Password dose not match')
+        }
+        setSuccess('')
+        logIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                setSuccess("Successfully Login")
+                setError('')
+                form.reset();
+            })
+            .catch(error => {
+                console.log(error.message);
+                // setError(error.message)
             })
     }
 
     return (
         <div className='text-center'>
             <h2 className='text-2xl font-semibold mb-20 mt-10'> Login Here</h2>
+            <p className='mb-2 text-red-600'> {error}</p>
+            <p className='mb-2 text-red-600'> {success}</p>
             <form onSubmit={handleLogIn}>
 
                 <label className='mr-5 font-bold' htmlFor="Email">Email:</label>
