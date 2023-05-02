@@ -25,10 +25,10 @@ const Navbar = () => {
                     } to='/'>Home</NavLink>
                     <NavLink className='ml-3 mr-3' to='/blog'>Blog</NavLink>
                     <button onClick={handleLogout} className='mr-3 '>LogOut</button>
-                    {/* <NavLink className='mr-3' to='/login'>LogIn</NavLink> */}
+
 
                     {user ? <img src='https://media.istockphoto.com/id/1170902285/photo/portrait-of-a-cool-guy-pointing-and-looking-up-impressed.jpg?s=612x612&w=0&k=20&c=Fs3iFBD-b6-21v3CgSdtFsqwiEVU-34WpTKxORJ7qVc=' alt="" className=' rounded-full w-10 h-10'></img> : <NavLink className='mr-3' to='/login'>LogIn</NavLink>}
-
+                    <NavLink className='ml-3 mr-3' to='/register'>Register</NavLink>
 
                 </div>
             </div>

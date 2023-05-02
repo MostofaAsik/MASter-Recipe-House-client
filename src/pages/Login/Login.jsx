@@ -4,7 +4,7 @@ import { FaArrowAltCircleRight, FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
-    const { logIn, loading } = useContext(AuthContext);
+    const { logIn, loading, googleLogin, githubLogin } = useContext(AuthContext);
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
 
@@ -30,8 +30,32 @@ const Login = () => {
             })
     }
 
+    //googleLOgin
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                const loggedUser = result.user
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
+
+    //github Login
+    const handleGithubLogin = () => {
+        githubLogin()
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
+
     return (
-        <div className='text-center'>
+        <div className='text-center bg-lime-300 py-10'>
             <h2 className='text-2xl font-semibold mb-20 mt-10'> Login Here</h2>
             <p className='mb-2 text-red-600'> {error}</p>
             <p className='mb-2 text-red-600'> {success}</p>
@@ -55,10 +79,10 @@ const Login = () => {
             </Link></p>
             <div className='mt-4'>
 
-                <button className='bg-amber-800 text-white px-6 py-1 rounded-md text-2xl'>  <span className='flex items-center'><FaGoogle className='mr-4'> </FaGoogle> Google</span> </button>
+                <button onClick={handleGoogleLogin} className='bg-amber-800 text-white px-6 py-1 rounded-md text-2xl'>  <span className='flex items-center'><FaGoogle className='mr-4'> </FaGoogle> Google</span> </button>
                 <br />
                 <br />
-                <button className='bg-amber-800 text-white px-6 py-1 rounded-md text-2xl'> <span className='flex items-center'><FaGithub className='mr-4'> </FaGithub> Github</span> </button>
+                <button onClick={handleGithubLogin} className='bg-amber-800 text-white px-6 py-1 rounded-md text-2xl'> <span className='flex items-center'><FaGithub className='mr-4'> </FaGithub> Github</span> </button>
             </div>
         </div>
     );

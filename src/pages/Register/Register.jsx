@@ -36,7 +36,7 @@ const Register = () => {
     }
 
     return (
-        <div className='text-center'>
+        <div className='text-center bg-lime-300 py-10'>
             <h2 className='text-2xl font-semibold mb-20 mt-10'> Register Here</h2>
             <p className='mb-2 text-red-600'> {error}</p>
             <p className='mb-2 text-red-600'> {success}</p>
