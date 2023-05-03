@@ -1,5 +1,6 @@
 import React from 'react';
 import './Banner.css'
+import { FaArrowDown } from "react-icons/fa";
 
 const Banner = () => {
     return (
@@ -11,7 +12,7 @@ const Banner = () => {
                 <div className='mt-5'>
                     <p className="text-green-300 text-3xl font-bold">Our Most Popular Recipe</p>
                     <br />
-                    <p className='text-center text-xl bg-rose-900 text-white py-4 hover:translate-x-9 hover:transform-gpu'>Expolore Here</p>
+                    <p className='text-center text-xl bg-rose-900 text-white py-4 hover:translate-x-9 hover:transform-gpu flex items-center justify-center'><FaArrowDown className='pr-3 text-4xl'></FaArrowDown> Expolore Here</p>
                 </div>
 
             </div>
