@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser, logOut } = useContext(AuthContext)
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
+    const navigate = useNavigate()
 
     const handleRegister = (event) => {
         event.preventDefault()
@@ -30,6 +31,8 @@ const Register = () => {
                 setSuccess("You are succesfull created an account")
                 setError('')
                 form.reset()
+                logOut()
+                navigate('/login')
 
             })
 

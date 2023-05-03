@@ -1,6 +1,9 @@
 import React from 'react';
+import { Document, Page } from 'react-pdf';
 
 const Blog = () => {
+
+
     return (
         <div className='text-center mt-5 '>
             <div className='bg-pink-300 py-10'>
@@ -19,6 +22,8 @@ const Blog = () => {
                 <h1 className='text-3xl'><span className='text-amber-700'>Q4.</span> What is a custom hook, and why will you create a custom hook?</h1>
                 <p className='text-xl mt-4'>Custom Hooks are a mechanism to reuse stateful logic  but every time you use a custom Hook, all state and effects inside of it are fully isolated. How does a custom Hook get isolated state? Each call to a Hook gets isolated state.</p>
             </div>
+
+
         </div>
     );
 };

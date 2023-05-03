@@ -1,8 +1,9 @@
 import React from 'react';
 import { FaRegThumbsUp } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Chef = ({ chef }) => {
-    const { ChefPicture, ChefName, YearsOfExperience, NumberOfRecipes, Likes } = chef;
+    const { ID, ChefPicture, ChefName, YearsOfExperience, NumberOfRecipes, Likes } = chef;
     return (
         <div className='w-70 h-70 shadow-lg p-6 mt-3'>
             <img className='w-full mb-2' src={ChefPicture} alt="" />
@@ -17,9 +18,9 @@ const Chef = ({ chef }) => {
 
             <div className='mt-2'>
 
-                {/* <Link to=''> */}
-                <button className='p-2 bg-lime-500 rounded-md '>View Recipe</button>
-                {/* </Link> */}
+                <Link to={`/chefdata/${ID}`}>
+                    <button className='p-2 bg-lime-500 rounded-md '>View Recipe</button>
+                </Link>
             </div>
 
 

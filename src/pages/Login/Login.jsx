@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaArrowAltCircleRight, FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../Provider/AuthProvider';
 
@@ -7,6 +7,11 @@ const Login = () => {
     const { logIn, loading, googleLogin, githubLogin } = useContext(AuthContext);
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
+
+    const navigate = useNavigate();
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
+    console.log(location)
 
     const handleLogIn = (event) => {
         event.preventDefault()
@@ -23,6 +28,7 @@ const Login = () => {
                 setSuccess("Successfully Login")
                 setError('')
                 form.reset();
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error.message);
@@ -36,6 +42,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user
                 console.log(loggedUser);
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error.message);
@@ -48,6 +55,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error.message);
