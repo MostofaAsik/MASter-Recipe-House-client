@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 
+
 const Register = () => {
     const { createUser, logOut } = useContext(AuthContext)
     const [error, setError] = useState('')
@@ -33,9 +34,22 @@ const Register = () => {
                 form.reset()
                 logOut()
                 navigate('/login')
+                updateUserProfile(result.user, name, photo)
 
             })
 
+    }
+
+    const updateUserProfile = (user, name, photo) => {
+        updateProfile(user, {
+            displayName: name, photoURL: photo
+        })
+            .then(() => {
+                console.log("user name updated");
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
     }
 
     return (
