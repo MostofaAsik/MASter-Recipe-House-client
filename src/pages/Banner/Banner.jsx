@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 
 const Banner = () => {
     return (
-        <div className="bg-cover  bg-center h-screen" style={{ backgroundImage: "url('https://cdn.pixabay.com/photo/2015/10/26/07/21/vegetables-1006694_1280.jpg')" }}>
+        <div className="bg-cover  bg-center h-screen " style={{ backgroundImage: "url('https://cdn.pixabay.com/photo/2015/10/26/07/21/vegetables-1006694_1280.jpg')" }}>
             <div className="flex flex-col justify-center items-center h-full">
                 <div>
 

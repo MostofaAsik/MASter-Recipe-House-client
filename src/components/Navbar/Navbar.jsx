@@ -15,8 +15,8 @@ const Navbar = () => {
             .catch(error => console.log(error.message))
     }
     return (
-        <div className=''>
-            <div className="navbar bg-neutral text-neutral-content flex justify-between ">
+        <div className=' '>
+            <div className="navbar bg-neutral text-neutral-content pl-3 pr-3  md:pl-16 md:pr-16  flex flex-col md:flex-row items-center md:items-center justify-between md:justify-between ">
                 <a className="btn btn-ghost normal-case text-3xl">MASter Recipe House</a>
 
                 <div className="">
